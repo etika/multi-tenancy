@@ -1,24 +1,24 @@
-# README
+# Multi-Tenancy
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This small repository was created to reproduce an example of usage of apartment gem
+It has two models (User and Project) to show how multi-tenancy actually works
 
-Things you may want to cover:
+### Testing
+start installing all the dependencies
+``` bundle ```
 
-* Ruby version
+raise the server
+``` rails server ```
 
-* System dependencies
+let's use lvh.me so it will allow to test subdomains locally. *lvh simulates localhost
+lvh.me:3000/users
 
-* Configuration
+in order to see the differences create two users
 
-* Database creation
+then use the subdomain
+>Eg: subdomain.lvh:3000/projects
 
-* Database initialization
+create a project and then switch to another user domain
+there will be only the respective projects, because apartment gem automatically separate tables from each tenant
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+it's great \o/
